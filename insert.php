@@ -1,7 +1,7 @@
 <?php
-$username = $_POST['username']
-$email = $_POST['email']
-$password = $_POST['password']
+$username = filter_input(INPUT_POST,'username');
+$email = filter_input(INPUT_POST,'email');
+$password = filter_input(INPUT_POST,'password');
 if(!empty($username) || !empty($email) || 
 !empty($password)){
     $host="localhost";
@@ -9,7 +9,7 @@ if(!empty($username) || !empty($email) ||
     $dbpassword ="";
     $dbname="agrosite";
     //create connection
-   $conn=new mysqli($host,$dbUsername,$dbpassword,$dbname)
+   $conn=new mysqli($host,$dbUsername,$dbpassword,$dbname);
      if(mysqli_connect_error())
     { 
         die('Connect Error('.mysqli_connect_errno().')'.mysqli_connect_error());
